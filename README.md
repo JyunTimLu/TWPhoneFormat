@@ -24,7 +24,6 @@ dependencies {
 <img src="https://raw.githubusercontent.com/JyunTimLu/TWPhoneFormat/master/screenshots/device-2017-02-08-002949.png" width="300" height="400" />
 <img src="https://raw.githubusercontent.com/JyunTimLu/TWPhoneFormat/master/screenshots/device-2017-02-08-003030.png" width="300" height="400" />
 <img src="https://raw.githubusercontent.com/JyunTimLu/TWPhoneFormat/master/screenshots/device-2017-02-08-003047.png" width="300" height="400" />
-<img src="https://raw.githubusercontent.com/JyunTimLu/TWPhoneFormat/master/screenshots/device-2017-02-08-003059.png" width="300" height="400" />
 <img src="https://raw.githubusercontent.com/JyunTimLu/TWPhoneFormat/master/screenshots/device-2017-02-08-003131.png" width="300" height="400" />
 
 #License
