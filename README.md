@@ -18,7 +18,7 @@ dependencies {
 
     ...
     
-    compile 'com.github.JyunTimLu:TWPhoneFomat:0.0.1'
+    compile 'com.github.JyunTimLu:TWPhoneFormat:0.0.1'
 }
 ```
 <img src="https://raw.githubusercontent.com/JyunTimLu/TWPhoneFormat/master/screenshots/device-2017-02-08-002949.png" width="300" height="400" />
