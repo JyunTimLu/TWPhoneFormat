@@ -58,79 +58,84 @@ public class TWPhoneFormat {
      */
     public static String getFormattedPhone(String s) {
 
-        StringBuilder stringBuilder = new StringBuilder(getNumber(s));
+        if (s != null) {
+            StringBuilder stringBuilder = new StringBuilder(getNumber(s));
 
-        if (stringBuilder.length() > 1) {
+            if (stringBuilder.length() > 1) {
 
-            String phoneCode = "09";
-            if (stringBuilder.substring(0, 2).equals(phoneCode)) {
-                if (stringBuilder.length() > 4) {
-                    stringBuilder.insert(4, "-");
-                }
+                String phoneCode = "09";
+                if (stringBuilder.substring(0, 2).equals(phoneCode)) {
+                    if (stringBuilder.length() > 4) {
+                        stringBuilder.insert(4, "-");
+                    }
 
-                if (stringBuilder.length() > 8) {
-                    stringBuilder.insert(8, "-");
-                }
+                    if (stringBuilder.length() > 8) {
+                        stringBuilder.insert(8, "-");
+                    }
 
-            } else {
-                boolean isFormat = false;
-                if (stringBuilder.length() > 3) {
-                    for (String areaCode : areaCodeList3) {
-                        if (stringBuilder.toString().substring(0, 4).equals(areaCode)) {
-                            formatAreaCode(stringBuilder, areaCode);
-                            isFormat = true;
-                            break;
+                } else {
+                    boolean isFormat = false;
+                    if (stringBuilder.length() > 3) {
+                        for (String areaCode : areaCodeList3) {
+                            if (stringBuilder.toString().substring(0, 4).equals(areaCode)) {
+                                formatAreaCode(stringBuilder, areaCode);
+                                isFormat = true;
+                                break;
+                            }
                         }
                     }
-                }
 
-                if (!isFormat && stringBuilder.length() > 2) {
-                    for (String areaCode : areaCodeList2) {
-                        if (stringBuilder.toString().substring(0, 3).equals(areaCode)) {
-                            formatAreaCode(stringBuilder, areaCode);
-                            isFormat = true;
-                            break;
+                    if (!isFormat && stringBuilder.length() > 2) {
+                        for (String areaCode : areaCodeList2) {
+                            if (stringBuilder.toString().substring(0, 3).equals(areaCode)) {
+                                formatAreaCode(stringBuilder, areaCode);
+                                isFormat = true;
+                                break;
+                            }
                         }
                     }
-                }
 
-                if (!isFormat) {
-                    for (String areaCode : areaCodeList) {
-                        if (stringBuilder.toString().substring(0, 2).equals(areaCode)) {
-                            formatAreaCode(stringBuilder, areaCode);
-                            break;
+                    if (!isFormat) {
+                        for (String areaCode : areaCodeList) {
+                            if (stringBuilder.toString().substring(0, 2).equals(areaCode)) {
+                                formatAreaCode(stringBuilder, areaCode);
+                                break;
+                            }
+
                         }
-
                     }
-                }
 
-                for (String sevenDigit : sevenDigits) {
-                    if (addDash(stringBuilder, sevenDigit, 7)) {
-                        return stringBuilder.toString();
+                    for (String sevenDigit : sevenDigits) {
+                        if (addDash(stringBuilder, sevenDigit, 7)) {
+                            return stringBuilder.toString();
+                        }
                     }
-                }
 
-                for (String eightDigit : eightDigits) {
-                    if (addDash(stringBuilder, eightDigit, 8)) {
-                        return stringBuilder.toString();
+                    for (String eightDigit : eightDigits) {
+                        if (addDash(stringBuilder, eightDigit, 8)) {
+                            return stringBuilder.toString();
+                        }
                     }
-                }
 
-                for (String sixDigit : sixDigits) {
-                    if (addDash(stringBuilder, sixDigit, 7)) {
-                        return stringBuilder.toString();
+                    for (String sixDigit : sixDigits) {
+                        if (addDash(stringBuilder, sixDigit, 7)) {
+                            return stringBuilder.toString();
+                        }
                     }
-                }
 
-                for (String fiveDigit : fiveDigits) {
-                    if (addDash(stringBuilder, fiveDigit, 7)) {
-                        return stringBuilder.toString();
+                    for (String fiveDigit : fiveDigits) {
+                        if (addDash(stringBuilder, fiveDigit, 7)) {
+                            return stringBuilder.toString();
+                        }
                     }
                 }
             }
+
+            return stringBuilder.toString();
         }
 
-        return stringBuilder.toString();
+        return "";
+
     }
 
     /**
