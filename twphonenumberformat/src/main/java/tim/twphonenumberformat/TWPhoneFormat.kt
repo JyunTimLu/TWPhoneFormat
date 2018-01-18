@@ -119,29 +119,21 @@ object TWPhoneFormat {
                         }
                     }
 
-                    for (sevenDigit in sevenDigits) {
-                        if (addDash(stringBuilder, sevenDigit, 7)) {
-                            return stringBuilder.toString()
-                        }
-                    }
+                    sevenDigits
+                            .filter { addDash(stringBuilder, it, 7) }
+                            .forEach { return stringBuilder.toString() }
 
-                    for (eightDigit in eightDigits) {
-                        if (addDash(stringBuilder, eightDigit, 8)) {
-                            return stringBuilder.toString()
-                        }
-                    }
+                    eightDigits
+                            .filter { addDash(stringBuilder, it, 8) }
+                            .forEach { return stringBuilder.toString() }
 
-                    for (sixDigit in sixDigits) {
-                        if (addDash(stringBuilder, sixDigit, 7)) {
-                            return stringBuilder.toString()
-                        }
-                    }
+                    sixDigits
+                            .filter { addDash(stringBuilder, it, 7) }
+                            .forEach { return stringBuilder.toString() }
 
-                    for (fiveDigit in fiveDigits) {
-                        if (addDash(stringBuilder, fiveDigit, 7)) {
-                            return stringBuilder.toString()
-                        }
-                    }
+                    fiveDigits
+                            .filter { addDash(stringBuilder, it, 7) }
+                            .forEach { return stringBuilder.toString() }
                 }
             }
 
@@ -220,15 +212,13 @@ object TWPhoneFormat {
                         .filter { addDash(stringBuilder, it, 7, editText, 12) }
                         .forEach { return stringBuilder.toString() }
 
-                for (fiveDigit in fiveDigits) {
-                    if (addDash(stringBuilder, fiveDigit, 7, editText, 12)) {
-                        return stringBuilder.toString()
-                    }
-                }
+                fiveDigits
+                        .filter { addDash(stringBuilder, it, 7, editText, 12) }
+                        .forEach { return stringBuilder.toString() }
             }
         }
 
-        editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(15))
+        editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(10))
         return stringBuilder.toString()
     }
 
@@ -237,11 +227,7 @@ object TWPhoneFormat {
      * @return phone number without any symbol
      */
     @JvmStatic
-    fun getNumber(s: String): String {
-        var s = s
-        s = s.replace("(", "").replace(")", "").replace("-", "")
-        return s
-    }
+    fun getNumber(s: String): String = s.replace("(", "").replace(")", "").replace("-", "")
 
     private fun formatAreaCode(stringBuilder: StringBuilder, areaCode: String) {
         if (!stringBuilder.toString().contains("(")) {

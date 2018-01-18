@@ -19,7 +19,7 @@ class TWPhoneFormatTextWatcher(private val editText: EditText) : TextWatcher {
             editText.removeTextChangedListener(this)
             val temp = charSequence.toString()
 
-            if (temp.length == 0) {
+            if (temp.isEmpty()) {
                 editText.setText("")
             } else {
                 editText.setText(TWPhoneFormat.getFormattedPhone(editText, temp))
