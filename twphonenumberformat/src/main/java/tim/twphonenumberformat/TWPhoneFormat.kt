@@ -47,7 +47,16 @@ object TWPhoneFormat {
             add("(03)")
             add("(04)7")
             add("(04)8")
+            add("(05)")
+            add("(06)")
+            add("(07)")
             add("(08)")
+        }
+    }
+
+    private val sevenDigits2 = object : ArrayList<String>() {
+        init {
+            add("(049)")
         }
     }
 
@@ -123,6 +132,10 @@ object TWPhoneFormat {
                             .filter { addDash(stringBuilder, it, 7) }
                             .forEach { return stringBuilder.toString() }
 
+                    sevenDigits2
+                            .filter { addDash(stringBuilder, it, 8) }
+                            .forEach { return stringBuilder.toString() }
+
                     eightDigits
                             .filter { addDash(stringBuilder, it, 8) }
                             .forEach { return stringBuilder.toString() }
@@ -176,6 +189,7 @@ object TWPhoneFormat {
                             formatAreaCode(stringBuilder, areaCode)
                             isFormat = true
                             break
+
                         }
                     }
                 }
@@ -196,12 +210,15 @@ object TWPhoneFormat {
                             formatAreaCode(stringBuilder, areaCode)
                             break
                         }
-
                     }
                 }
 
                 sevenDigits
                         .filter { addDash(stringBuilder, it, 7, editText, 12) }
+                        .forEach { return stringBuilder.toString() }
+
+                sevenDigits2
+                        .filter { addDash(stringBuilder, it, 8, editText, 13) }
                         .forEach { return stringBuilder.toString() }
 
                 eightDigits
